@@ -73,10 +73,7 @@ public:
 	uint8_t getMsgId();
 	void setMsgId();
 
-<<<<<<< HEAD
-=======
 	void setData(uint8_t* ptr);
->>>>>>> Compiles
 	uint8_t getData(uint8_t pos);
 
 	uint8_t getDataLength();
