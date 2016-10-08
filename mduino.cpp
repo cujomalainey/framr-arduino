@@ -39,7 +39,7 @@ void IncomingMessage::setChecksum(uint8_t checksum) {
 }
 
 uint8_t IncomingMessage::getPacketLength() {
-	return _length - ANT_MSG_OVERHEAD_LENGTH;
+	return _length - MDUINO_MSG_OVERHEAD_LENGTH;
 }
 
 bool IncomingMessage::isAvailable() {
@@ -94,7 +94,7 @@ void IncomingMessage::reset() {
 	_errorCode = NO_ERROR;
 }
 
-void Ant::resetResponse() {
+void mduino::resetResponse() {
 	_pos = 0;
 	_checksumTotal = 0;
 	_response.reset();
@@ -193,7 +193,7 @@ void mduino::readPacket() {
 
         switch(_pos) {
 			case 0:
-		        if (b == ANT_START_BYTE) {
+		        if (b == MDUINO_START_BYTE) {
 		        	_pos++;
 		        }
 
@@ -212,7 +212,7 @@ void mduino::readPacket() {
 			default:
 				// starts at fourth byte
 
-				if (_pos > ANT_MAX_MSG_DATA_SIZE) {
+				if (_pos > MDUINO_MAX_MSG_DATA_SIZE) {
 					// exceed max size.  should never occur
 					_response.setErrorCode(PACKET_EXCEEDS_BYTE_ARRAY_LENGTH);
 					return;
@@ -240,7 +240,7 @@ void mduino::readPacket() {
 					return;
 				} else {
 					// add to packet array, starting with the fourth byte of the msgId
-					_response.getFrameData()[_pos - ANT_MSG_FRONT_OVERHEAD] = b;
+					_response.getFrameData()[_pos - MDUINO_MSG_FRONT_OVERHEAD] = b;
 					_pos++;
 				}
         }

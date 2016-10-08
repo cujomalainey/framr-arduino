@@ -76,9 +76,9 @@ public:
 	uint8_t getMsgId();
 	void setMsgId();
 
-	uint8_t getData(uint8_t pos) = 0;
+	uint8_t getData(uint8_t pos);
 
-	uint8_t getDataLength() = 0;
+	uint8_t getDataLength();
 	void setDataLength(uint8_t length);
 	//void reset();
 protected:
