@@ -1,11 +1,7 @@
 #ifndef MDUINO_h
 #define MDUINO_h
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "mbed.h"
-#endif
+#include "Arduino.h"
 
 #include <inttypes.h>
 
