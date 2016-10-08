@@ -247,7 +247,9 @@ void mduino::readPacket() {
     }
 }
 
-// it's peanut butter jelly time!!
+OutgoingMessage::OutgoingMessage() {
+
+}
 
 OutgoingMessage::OutgoingMessage(uint8_t msgId) {
 	_msgId = msgId;
@@ -259,6 +261,22 @@ uint8_t OutgoingMessage::getMsgId() {
 
 void OutgoingMessage::setMsgId(uint8_t msgId) {
 	_msgId = msgId;
+}
+
+void OutgoingMessage::setData(uint8_t* ptr) {
+	_dataPtr = ptr;
+}
+
+void OutgoingMessage::setDataLength(uint8_t length) {
+	_length = length;
+}
+
+uint8_t OutgoingMessage::getDataLength() {
+	return _length;
+}
+
+uint8_t OutgoingMessage::getData(uint8_t pos) {
+	return _dataPtr[pos];
 }
 
 void mduino::send(OutgoingMessage &request) {

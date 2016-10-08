@@ -67,21 +67,21 @@ private:
 
 class OutgoingMessage {
 public:
-	/**
-	 * Constructor
-	 * TODO make protected
-	 */
+	OutgoingMessage();
 	OutgoingMessage(uint8_t msgId);
 
 	uint8_t getMsgId();
 	void setMsgId();
 
+<<<<<<< HEAD
+=======
+	void setData(uint8_t* ptr);
+>>>>>>> Compiles
 	uint8_t getData(uint8_t pos);
 
 	uint8_t getDataLength();
 	void setDataLength(uint8_t length);
 	//void reset();
-protected:
 	void setMsgId(uint8_t msgId);
 private:
 	uint8_t _msgId;
